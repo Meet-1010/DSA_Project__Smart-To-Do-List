@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart To-Do List</title>
+    <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Smart To-Do List</h1>
+        <div class="stats">
+            <div class="stat-card">
+                <div class="stat-title">Active</div>
+                <div class="stat-value" id="active-count">0</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-title">Completed</div>
+                <div class="stat-value" id="completed-count">0</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-title">Recurring</div>
+                <div class="stat-value" id="recurring-count">0</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-title">High Priority</div>
+                <div class="stat-value" id="high-priority-count">0</div>
+            </div>
+        </div>
+        
+        <form id="task-form">
+            <input type="text" id="task-name" placeholder="Task Name" required>
+            <input type="text" id="task-desc" placeholder="Description" required>
+            <input type="number" id="task-priority" placeholder="Priority (1-10)" required>
+            <input type="date" id="task-due-date" required>
+            <label>
+                Recurring:
+                <input type="checkbox" id="task-recurring">
+            </label>
+            <button type="submit">Add Task</button>
+        </form>
+        
+        <div class="action-buttons">
+            <button id="undo-btn">Undo</button>
+            <button id="redo-btn">Redo</button>
+        </div>
+        
+        <div class="tabs">
+            <div class="tab active" data-tab="active">Active Tasks</div>
+            <div class="tab" data-tab="completed">Completed Tasks</div>
+            <div class="tab" data-tab="recurring">Recurring Tasks</div>
+        </div>
+        
+        <div class="tab-content" id="active-tab">
+            <h2>Active Tasks</h2>
+            <ul id="task-list"></ul>
+        </div>
+        
+        <div class="tab-content" id="completed-tab" style="display: none;">
+            <h2>Completed Tasks</h2>
+            <ul id="completed-task-list"></ul>
+        </div>
+        
+        <div class="tab-content" id="recurring-tab" style="display: none;">
+            <h2>Recurring Tasks</h2>
+            <ul id="recurring-task-list"></ul>
+        </div>
+    </div>
+    <script src="/static/main.js"></script>
+</body>
+</html>
